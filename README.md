@@ -1,71 +1,42 @@
-# codecontext README
+# codecontext
 
-This is the README for your extension "codecontext". After writing up a brief description, we recommend including the following sections.
+llms support long context and it's more beneficial to 
+share context from your files to any current llm subscription you have
 
-## Features
+this will save you money and time, since you won't need to purchase copilot,
+sourcegraph cody, use your api key, etc
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
 
-For example if there is an image subfolder under your extension project workspace:
+# motivation
+- the best RAG performance is: you understanding the codebase and putting effort in tracing the logic. codebases are just a huge factorio map
+- current agents don't perform well with opening relevant files, and take an extremely long time contributing value when you could just increase your prompting skills and save money now
+- why would you rob yourself from onbboarding to a new codebase and understanding it
+- this tool simply allows you to copy paste quicker and use the best model you know to tackle the issue, saving you ~20/month
 
-\!\[feature X\]\(images/feature-x.png\)
+# features
+- starts a public facing tunnel for your code context, allowing you to easily integrate with other GPT wrappers, or huggingchat
+- gets the context from the opened files
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
 
-## Requirements
+# future
+- add feature to knowledge distill from the open files, to improve performance of GPT / Anthropic long context performance
+    - `/api/context/distilled`
+    - this assumes current LLMs perform worse the more context you give it, if you give it 100k context and ask some cognitive task, it will likely perform worse than if you knowledge distill that 100k context and feed the most relevant from that
+    - different techniques to knowledge distill:
+        - brute force LLM pass through (ask claude haiku if snippet is relevant to query)
+        - vectorDB search and rerank with cohere rerank
+        - integrate with phorm.ai and leverage their repo-level vector search
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+- private context sharing, allow sign in with github on the client side
+- create a frontend that integrates with this service
 
-## Extension Settings
+# how to use
+- use vscode insiders (we use code-tunnels to port forward the context which is in preview mode right now)
+- clone repo
+- npm i 
+- press run and debug 
+- new vscode insiders window pops up
+- now press cmd shift p
+- look up `codecontext` and press `share context`
+- agree to public port opening (future we will support private ports)
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
-This extension contributes the following settings:
-
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
-
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
----
-
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
