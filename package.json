@@ -11,14 +11,15 @@
   ],
   
   "activationEvents": [
-    "onCommand:codecontext.setupServer"
+    "onCommand:codecontext.startServer"
   ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "codecontext.setupServer",
-        "title": "CodeContext: Share code context via server"
+        "category": "%category%",
+        "command": "codecontext.startServer",
+        "title": "%command.startServer%"
       },
       {
         "category": "%category%",
@@ -31,6 +32,17 @@
         "command": "codecontext.restart",
         "title": "%command.restart%",
         "enablement": "codecontextIsRunning"
+      },
+      {
+        "category": "%category%",
+        "command": "codecontext.stopServer",
+        "title": "%command.stopServer%",
+        "enablement": "codecontextIsRunning"
+      },
+      {
+        "category": "%category%",
+        "command": "codecontext.showLog",
+        "title": "%command.showLog%"
       }
     ]
   },
@@ -41,11 +53,6 @@
       "supported": true
     }
   },
-
-  "enabledApiProposals": [
-    "resolvers",
-    "tunnelFactory"
-  ],
 
   "scripts": {
     "vscode:prepublish": "npm run compile",

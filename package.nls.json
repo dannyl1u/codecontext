@@ -1,0 +1,7 @@
+{
+    "category": "CodeContext",
+    "command.startServer": "Start Server",
+    "command.showLog": "Show Log",
+    "command.restart": "Restart Server",
+    "command.stopServer": "Stop Server"
+  }
